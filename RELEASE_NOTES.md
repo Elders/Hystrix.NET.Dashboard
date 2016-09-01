@@ -1,3 +1,6 @@
+#### 1.0.2 - 01.09.2016
+* Removes trailing '/' if provided
+
 #### 1.0.1 - 01.09.2016
 * Logs proper error messages when dashboard is unable to start listener on the provided host
 

@@ -15,6 +15,7 @@ namespace Elders.Hystrix.NET.Dashboard
         {
             try
             {
+                address = address.TrimEnd('/');
                 if (app != null)
                     throw new InvalidOperationException("Hysrix Dashboard is already hosted. HystrixDashboard.Selfhost can be called only once");
                 log.Info($"Started dashboard on {address}");
@@ -23,7 +24,7 @@ namespace Elders.Hystrix.NET.Dashboard
             }
             catch (TargetInvocationException ex)
             {
-                string command = $"netsh http add urlacl url = {address} user=Everyone listen=yes";
+                string command = $"netsh http add urlacl url={address}/ user=Everyone listen=yes";
                 string exMessage = "Unable to start listener. Try: " + command;
                 log.FatalException(exMessage, ex);
                 throw new TargetInvocationException(exMessage, ex);
