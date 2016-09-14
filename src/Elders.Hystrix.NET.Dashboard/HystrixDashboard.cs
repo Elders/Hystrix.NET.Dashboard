@@ -15,7 +15,7 @@ namespace Elders.Hystrix.NET.Dashboard
         {
             try
             {
-                address = address.TrimEnd('/');
+                //address = address.TrimEnd('/');
                 if (app != null)
                     throw new InvalidOperationException("Hysrix Dashboard is already hosted. HystrixDashboard.Selfhost can be called only once");
                 log.Info($"Started dashboard on {address}");

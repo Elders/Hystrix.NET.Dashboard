@@ -8,7 +8,6 @@ using System.Text;
 
 namespace Elders.Hystrix.NET.Dashboard
 {
-    [Obsolete("I see no reason why this class should exists. We could do this directly in the javascript...")]
     public class HystrixProxyStream
     {
         private static readonly ILog Logger = LogProvider.GetLogger(typeof(HystrixProxyStream));

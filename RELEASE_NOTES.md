@@ -1,3 +1,6 @@
+#### 1.0.3 - 14.09.2016
+* Fixes dashboard render when command key contains \ or /
+
 #### 1.0.2 - 01.09.2016
 * Removes trailing '/' if provided
 
