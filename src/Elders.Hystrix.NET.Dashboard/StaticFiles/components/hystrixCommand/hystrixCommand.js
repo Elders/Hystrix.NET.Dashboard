@@ -26,7 +26,7 @@
         if (self.args == undefined) {
             self.args = {};
         }
-
+        //containerId = containerId.replace('$', '_');
         this.containerId = containerId;
 
         /**
@@ -70,7 +70,7 @@
                 if (!data.reportingHosts) {
                     data.reportingHosts = 1;
                 }
-
+                data.name = data.name.replace(/\W/g, '_');
                 if (data && data.type == 'HystrixCommand') {
                     if (data.deleteData == 'true') {
                         deleteCircuit(data.name);
@@ -290,12 +290,12 @@
             }
 
             d3.selectAll(cssTarget)
-				.transition()
-				.duration(400)
-				.attr("cy", newYaxisForCircle)
-				.attr("cx", newXaxisForCircle)
-				.attr("r", newRadiusForCircle)
-				.style("fill", self[variablePrefix + 'ColorRange'](errorPercentage));
+                .transition()
+                .duration(400)
+                .attr("cy", newYaxisForCircle)
+                .attr("cx", newXaxisForCircle)
+                .attr("r", newRadiusForCircle)
+                .style("fill", self[variablePrefix + 'ColorRange'](errorPercentage));
         }
 
         /* private */ function updateSparkline(variablePrefix, cssTarget, newDataPoint) {
@@ -345,15 +345,15 @@
             var yScale = d3.scale.linear().domain([yMin, yMax]).nice().range([60, 0]); // y goes DOWN, so 60 is the "lowest"
 
             sparkline = d3.svg.line()
-            // assign the X function to plot our line as we wish
-            .x(function (d, i) {
-                // return the X coordinate where we want to plot this datapoint based on the time
-                return xScale(new Date(d.t));
-            })
-            .y(function (d) {
-                return yScale(d.v);
-            })
-            .interpolate("basis");
+                // assign the X function to plot our line as we wish
+                .x(function (d, i) {
+                    // return the X coordinate where we want to plot this datapoint based on the time
+                    return xScale(new Date(d.t));
+                })
+                .y(function (d) {
+                    return yScale(d.v);
+                })
+                .interpolate("basis");
 
             d3.selectAll(cssTarget).attr("d", sparkline(data));
         }
