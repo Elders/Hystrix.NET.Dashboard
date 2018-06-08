@@ -1,3 +1,6 @@
+#### 1.0.4 - 08.06.2018
+* Improves dashboard render of command name.
+
 #### 1.0.3 - 14.09.2016
 * Fixes dashboard render when command key contains \ or /
 
