@@ -3,9 +3,9 @@ Hystrix.NET Dashboard
 
 
 
-#Quick setup
+# Quick setup
 
-##Setup the dashboard
+## Setup the dashboard
 1. Create a MVC app
 2. Make Windows happy, as admin => `netsh http add urlacl url=http://+:9000/ user=Everyone listen=yes`
 3. Use the following code in the `Startup`
@@ -32,7 +32,7 @@ public partial class Startup
 }
 ```
 
-##Setup Hystrix
+## Setup Hystrix
 1. In the app which uses Hystrix.NET install Hystrix.NET.MetricsEventStream nuget package
 2. Make Windows happy, as admin => `netsh http add urlacl url=http://+:10900/ user=Everyone listen=yes`
 3. Create Hystrix startup class
@@ -72,8 +72,6 @@ public static class HystrixStartup
 
 4. Initialize hystrix in the app `Startup`
 ```
-...
-
 HystrixStartup.Start(null);
 var properties = new AppProperties(app.Properties);
 CancellationToken token = properties.OnAppDisposing;
@@ -84,6 +82,4 @@ if (token != CancellationToken.None)
         HystrixStartup.Stop();
     });
 }
-
-...
 ```
